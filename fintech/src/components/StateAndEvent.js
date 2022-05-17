@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const StateAndEvent = () => {
   
-  let userText = "사용자 입력 내용";
+  //let userText = "사용자 입력 내용";
+  const [userText, setUserText] = useState("초기 값 입니다.");
 
   const handleClick = () => {
       alert("test");
@@ -10,8 +11,7 @@ const StateAndEvent = () => {
 
   const handleChange = (event) => {
     const {value} = event.target;
-    userText = value;
-    console.log(userText);
+    setUserText(value)
   }
 
   return (
