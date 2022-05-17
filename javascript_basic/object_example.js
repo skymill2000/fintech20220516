@@ -9,4 +9,5 @@ let car = {
     }
 }
 
-console.log(car)
+console.log(car.name)
+car.start();
