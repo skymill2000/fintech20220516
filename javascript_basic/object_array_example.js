@@ -54,6 +54,15 @@ for(car of cars){
 
 cars.map(car => {
     if(car.name === "bmw"){
-        console.log("차량을 찾았습니다.")
+        console.log("차량의 이름은: "+ car.name +" 차량을 찾았습니다. 마력은 " + car.ph + "입니다");
+        console.log(`차량의 이름은 : ${car.name} 차량을 찾았습니다 마력은 ${car.ph} 입니다`);
     }    
 })
+
+//구조분해 할당
+// const name = car1.name;
+// const ph = car1.ph;
+// 귀찮
+
+const {name, ph} = car1;
+console.log(name, ph);
