@@ -1,12 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
-const element = <h1>hello</h1>;
-
-const Welcome = ({username, age}) =>{
-  console.log(username, age);
-  return <h2>안녕하세요 {username}님 나이는 {age}세 입니다</h2>
-}
+import Welcome from './components/Welcome';
 
 function App() {
   return (
