@@ -8,7 +8,7 @@ import AppBar from './components/common/AppBar';
 function App() {
   return (
     <>
-        <AppBar></AppBar>
+        <AppBar title={"메인화면"}></AppBar>
     </>
   );
 }
