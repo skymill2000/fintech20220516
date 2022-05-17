@@ -3,9 +3,9 @@ import './App.css';
 
 const element = <h1>hello</h1>;
 
-const Welcome = (props) =>{
-  console.log(props);
-  return <h2>안녕하세요 {props.username}님 나이는 {props.age}세 입니다</h2>
+const Welcome = ({username, age}) =>{
+  console.log(username, age);
+  return <h2>안녕하세요 {username}님 나이는 {age}세 입니다</h2>
 }
 
 function App() {
