@@ -40,4 +40,20 @@ let cars = [car1, car2, car3];
 // }
 
 //#work2 of / for / map 상관없이 차량의 이름이 bmw 일 경우에 "차량을 찾았습니다." 를 출력
-for();
+for(let i = 0; i < cars.length; i++){
+    if(cars[i].name === "bmw"){
+        console.log("차량을 찾았습니다.")
+    }
+}
+
+for(car of cars){
+    if(car.name === "bmw"){
+        console.log("차량을 찾았습니다.")
+    }
+}
+
+cars.map(car => {
+    if(car.name === "bmw"){
+        console.log("차량을 찾았습니다.")
+    }    
+})
