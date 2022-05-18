@@ -1,15 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import Welcome from './components/Welcome';
-import StateAndEvent from './components/StateAndEvent';
-import ArrayMap from './components/ArrayMap';
-import AppBar from './components/common/AppBar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Welcome from "./components/Welcome";
+import ArrayMap from "./components/ArrayMap";
+
 
 function App() {
   return (
-    <>
-        <AppBar title={"메인화면"}></AppBar>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/a" element={<Welcome/>}></Route>
+        <Route path="/b" element={<ArrayMap/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
