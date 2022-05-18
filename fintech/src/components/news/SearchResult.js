@@ -1,8 +1,14 @@
 import React from 'react'
 
-const SearchResult = () => {
+const SearchResult = ({searchList}) => {
   return (
-    <div>SearchResult</div>
+    <>
+        {
+            searchList.map(({title})=>{
+                return (<p>{title}</p>)
+            })
+        }
+    </>
   )
 }
 

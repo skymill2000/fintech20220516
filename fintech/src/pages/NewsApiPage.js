@@ -20,10 +20,10 @@ const NewsApiPage = () => {
     // 검색 버튼을 클릭합니다.
     // searchInput의 데이터를 가지고와 Axios 요청 작성
     console.log("click!")
-    const url = "";
+    const url = `https://newsapi.org/v2/everything?q=${searchInput}&from=2022-04-18&sortBy=publishedAt&apiKey=78bc6ddd8cdb48ceac76f5f9b9dfc4c5`;
     axios.get(url).then((response) => {
         console.log(response.data);
-        setSearchList(response.data)
+        setSearchList(response.data.articles);
     });
   }
   
