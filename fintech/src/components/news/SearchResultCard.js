@@ -14,10 +14,11 @@ const CardTitle = styled.div`
 `;
 
 
-const SearchResultCard = ({title, link}) => {
+const SearchResultCard = ({title, link, imageUrl}) => {
   return (
     <CardBlock>
         <CardTitle>{title}</CardTitle>
+        <img src={imageUrl}></img>
         <a href={link}>기사로 이동하기</a>
     </CardBlock>
   )

@@ -10,8 +10,8 @@ const SearchResult = ({searchList}) => {
   return (
     <SearchResultBlock>
         {
-            searchList.map(({title,url})=>{
-                return (<SearchResultCard title={title} link={url}></SearchResultCard>)
+            searchList.map(({title, url, urlToImage})=>{
+                return (<SearchResultCard title={title} link={url} imageUrl={urlToImage}></SearchResultCard>)
             })
         }
     </SearchResultBlock>
