@@ -8,6 +8,7 @@ const AxiosTest = () => {
     axios.get('https://api.sampleapis.com/avatar/info').then((data) => {
         console.log(data);
     });
+    console.log("hello");
   }  
 
   return (
