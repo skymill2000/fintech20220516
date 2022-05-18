@@ -36,7 +36,7 @@ const NewsApiPage = () => {
             handleClick={searchButtonHandleClick}>
         </SearchInput>
         {/* 검색 결과 출력 컴포넌트 */}
-        <SearchResult></SearchResult>
+        <SearchResult searchList={searchList}></SearchResult>
     </>
   )
 }
