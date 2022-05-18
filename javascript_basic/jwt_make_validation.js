@@ -6,6 +6,7 @@ const token = jwt.sign(
     'fefasdfas', //secretkey
     { expiresIn: '1h' }
 );
+
 console.log(token);
 
 jwt.verify(
