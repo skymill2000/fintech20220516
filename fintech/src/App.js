@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./pages/AuthPage";
 import AuthResultPage from "./pages/AuthResultPage";
 import AxiosTest from "./pages/AxiosTest";
+import MainPage from "./pages/MainPage";
 import NewsApiPage from "./pages/NewsApiPage";
 
 
@@ -13,6 +14,7 @@ function App() {
         <Route path="/axiosTest" element={<AxiosTest/>}></Route>
         <Route path="/" element={<AuthPage/>}></Route>
         <Route path="/authResult" element={<AuthResultPage/>}></Route>
+        <Route path="/main" element={<MainPage/>}></Route>
       </Routes>
     </BrowserRouter>
   );
