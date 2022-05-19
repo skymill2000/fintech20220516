@@ -27,7 +27,7 @@ const AuthResultPage = () => {
         header: {
 
         },
-        data: 
+        data: encodedData
     }
 
     axios(option).then((response) => {
