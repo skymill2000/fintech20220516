@@ -5,9 +5,7 @@ import AppBar from '../components/common/AppBar'
 const MainPage = () => {
   const [accountList, setAccountList] = useState([]);
   const accessToken = localStorage.getItem('accessToken');
-  const userSeqNo = localStorage.getItem('useSeqNo');
-
-  console.log(accessToken, userSeqNo);
+  const userSeqNo = localStorage.getItem('userSeqNo');
 
   useEffect(() => {
     getUserAccountList();
@@ -19,20 +17,21 @@ const MainPage = () => {
     // token : headers : { Authorizaion : `bearer {여러분들의 토큰}` }
 
     const sendData = {
-        //?
+        user_seq_no : userSeqNo
     }
 
     const option = {
-        method : "",
-        url: "",
+        method : "GET",
+        url: "/v2.0/user/me?user_seq_no=1100034736",
         headers: {
-            Authorization : ``
+            Authorization : `Bearer ${accessToken}`
         },
         params: sendData 
     }
     
     axios(option).then(({data}) => {
-
+        console.log(data);
+        setAccountList(data.res_list);
     })
 
   }
@@ -41,6 +40,9 @@ const MainPage = () => {
     <>
         <AppBar title={"메인페이지"}/>
         {/* fintech_use_no 을 반복문을 통해 출력 */}
+        {accountList.map((account)=>{
+            return <p>{account.fintech_use_num}</p>
+        })}
     </>
   )
 }
