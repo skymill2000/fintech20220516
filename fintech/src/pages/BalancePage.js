@@ -55,7 +55,30 @@ const BalancePage = () => {
   }
 
   const getTransctionList = () => {
+    const sendData = {
+        bank_tran_id: genTransId(),
+        fintech_use_num: fintechUseNo,
+        inquiry_type: "A",
+        inquiry_base: "D",
+        from_date: "20220101",
+        to_date: "20220101",
+        sort_order: "D", 
+        tran_dtime: "20220519160200",
+    }
 
+    const option = {
+        method : "GET",
+        url: `/v2.0/account/transaction_list/fin_num`,
+        headers: {
+            Authorization : `Bearer ${accessToken}`
+        },
+        params : sendData
+    }
+    
+    axios(option).then(({data}) => {
+        console.log(data);
+        setTransactionList(data.res_list);
+    })
   }
 
   return (
