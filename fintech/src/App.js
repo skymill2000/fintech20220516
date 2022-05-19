@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./pages/AuthPage";
 import AuthResultPage from "./pages/AuthResultPage";
 import AxiosTest from "./pages/AxiosTest";
+import BalancePage from "./pages/BalancePage";
 import MainPage from "./pages/MainPage";
 import NewsApiPage from "./pages/NewsApiPage";
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<AuthPage/>}></Route>
         <Route path="/authResult" element={<AuthResultPage/>}></Route>
         <Route path="/main" element={<MainPage/>}></Route>
+        <Route path="/balance" element={<BalancePage/>}></Route>
       </Routes>
     </BrowserRouter>
   );
