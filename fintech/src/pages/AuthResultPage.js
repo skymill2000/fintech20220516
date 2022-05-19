@@ -23,15 +23,22 @@ const AuthResultPage = () => {
 
     const option = {
         method : "POST",
-        url: "https://testapi.openbanking.or.kr/oauth/2.0/token",
+        url: "/oauth/2.0/token",
         header: {
             "Content-Type" : "application/x-www-form-urlencoded"
         },
         data: encodedData
     }
 
-    axios(option).then((response) => {
-        console.log(response)
+    axios(option).then(({data}) => {
+        console.log(data)
+        if(data.rsp_code === "O0001"){
+            alert("인증코드가 만료되었습니다. 인증을 다시 진행해 주세요");
+        }
+        else {
+            setAccessToken(data.access_token);
+            setUserSeqNo(data.user_seq_no);
+        } 
     })
   }
 
