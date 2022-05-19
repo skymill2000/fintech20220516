@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AppBar from '../components/common/AppBar'
 import { useLocation } from 'react-router-dom'
 import queryString from 'query-string'
@@ -8,6 +8,10 @@ const AuthResultPage = () => {
   const { code } = queryString.parse(useLocation().search);
   const [accessToken, setAccessToken] = useState('토큰이 없습니다.')
   const [userSeqNo, setUserSeqNo] = useState('사용자 번호가 없습니다.')
+
+  useEffect(() => {
+     handleGetAccessToeknClick(); 
+  },[]);
 
   const handleGetAccessToeknClick = () => {
     const sendData = {
@@ -38,6 +42,8 @@ const AuthResultPage = () => {
         else {
             setAccessToken(data.access_token);
             setUserSeqNo(data.user_seq_no);
+            localStorage.setItem('accessToken', data.access_token);
+            localStorage.setItem('useSeqNo', data.user_seq_no);
         } 
     })
   }
