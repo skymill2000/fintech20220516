@@ -16,17 +16,19 @@ const MainPage = () => {
     // hint : Method GET 때문에 요청하는 데이터는 option= { ... params : 에 데이터를 전달 }
     // token : headers : { Authorizaion : `bearer {여러분들의 토큰}` }
 
+    console.log(userSeqNo)
+
     const sendData = {
         user_seq_no : userSeqNo
     }
 
     const option = {
         method : "GET",
-        url: "/v2.0/user/me?user_seq_no=1100034736",
+        url: `/v2.0/user/me`,
         headers: {
             Authorization : `Bearer ${accessToken}`
         },
-        params: sendData 
+        params : sendData
     }
     
     axios(option).then(({data}) => {

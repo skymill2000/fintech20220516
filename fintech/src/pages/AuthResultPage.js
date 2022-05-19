@@ -43,7 +43,7 @@ const AuthResultPage = () => {
             setAccessToken(data.access_token);
             setUserSeqNo(data.user_seq_no);
             localStorage.setItem('accessToken', data.access_token);
-            localStorage.setItem('useSeqNo', data.user_seq_no);
+            localStorage.setItem('userSeqNo', data.user_seq_no);
         } 
     })
   }
