@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AppBar from '../components/common/AppBar'
+import MainCard from '../components/main/MainCard';
 
 const MainPage = () => {
   const [accountList, setAccountList] = useState([]);
@@ -43,7 +44,7 @@ const MainPage = () => {
         <AppBar title={"메인페이지"}/>
         {/* fintech_use_no 을 반복문을 통해 출력 */}
         {accountList.map((account)=>{
-            return <p>{account.fintech_use_num}</p>
+            return <MainCard bankName={account.bank_name} fintechUseNo={account.fintech_use_num}></MainCard>
         })}
     </>
   )
