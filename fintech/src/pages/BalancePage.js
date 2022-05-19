@@ -5,16 +5,24 @@ import queryString from "query-string";
 import BalanceCard from '../components/balance/BalanceCard'
 import AppBar from '../components/common/AppBar'
 import axios from 'axios';
+import TransactionList from '../components/balance/TransactionList';
 
 const BalancePage = () => {
+  //url QueryString : fintechUseNo=199159919057870978216487
+  //const queryStringValue = useLocation().search;
+  //const queryStringObj = queryString.parse(queryStringValue);
+  //const fintechUseNo = queryStringObj.fintechUseNo;
+
   const { fintechUseNo } = queryString.parse(useLocation().search);
   const accessToken = localStorage.getItem('accessToken');
-  const [balance, setBalance] = useState("0")
+  const [balance, setBalance] = useState("0");
+  const [transactionList, setTransactionList] = useState([]);
   //잔액 저장 스테이트
 
   useEffect(()=>{
     console.log(fintechUseNo)
     getBalance();
+    getTransctionList();
   },[])  
 
   const genTransId = () => {
@@ -46,10 +54,15 @@ const BalancePage = () => {
     })
   }
 
+  const getTransctionList = () => {
+
+  }
+
   return (
     <>
         <AppBar title={"잔액조회"}/>
         <BalanceCard bankName={balance.bank_name} fintechNo={balance.fintech_use_num} balance={balance.balance_amt}></BalanceCard>
+        <TransactionList transactionList={transactionList}></TransactionList>
     </>
   )
 }
