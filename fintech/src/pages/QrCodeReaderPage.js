@@ -8,7 +8,8 @@ const QrCodeReaderPage = () => {
 
     const handleScan = (result, error) => {
         if (!!result) {
-            setResult(result?.text);
+            console.log(result.text);
+            setResult(result.text);
         }
         if (!!error) {
         }
@@ -17,7 +18,10 @@ const QrCodeReaderPage = () => {
     return(    
       <>
         <AppBar title={"QR 리더"}/>
-        <QrReader onResult={handleScan}/>
+        <QrReader 
+            onResult={handleScan}
+            style={{ width: '100%' }}
+        />
       <p>{result}</p>
 
       </>
