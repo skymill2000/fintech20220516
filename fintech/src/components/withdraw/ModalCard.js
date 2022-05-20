@@ -28,6 +28,8 @@ const WithDrawButton = styled.button`
 
 const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
   
+  const [amount, setamount] = useState("");
+
   const genTransId = () => {
     let countnum = Math.floor(Math.random() * 1000000000) + 1;
     let transId = "T991599190U" + countnum; //이용기과번호 본인것 입력
@@ -37,6 +39,25 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
   const handlePayButtonClick = () => {
     //#work8 출금 이체 axios 요청
     //...
+
+    const sendData = {
+        "bank_tran_id": genTransId(),
+        "cntr_account_type": "N",
+        "cntr_account_num": "7832932596",
+        "dps_print_content": "쇼핑몰환불",
+        "fintech_use_num": fintechUseNo,
+        "wd_print_content": "오픈뱅킹출금",
+        "tran_amt": amount,
+        "tran_dtime": "20190910101921",
+        "req_client_name": "홍길동",
+        "req_client_fintech_use_num": fintechUseNo,
+        "req_client_num": "HONGGILDONG1234",
+        "transfer_purpose": "TR",
+        "recv_client_name": "진상언",
+        "recv_client_bank_code": "097",
+        "recv_client_account_num": "7832932596"    
+    }
+
     const option = {
         method: "POST",
         url: "/v2.0/transfer/withdraw/fin_num",
@@ -45,15 +66,24 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
         },
         data: sendData,
     };
+
+    axios(option).then(({data})=>{
+        console.log(data);
+    })
     //...
   } 
+
+  const handleChange = (e) => {
+    const {value} = e.target;
+    setamount(value);
+  }
 
   return (
     <ModalCardBlock>
       <CardTitle>{bankName}</CardTitle>
       <FintechUseNo>{fintechUseNo}</FintechUseNo>
       <p>{tofintechno}로 돈을 보냅니다.</p>
-      <input></input>
+      <input onChange={handleChange}></input>
       <WithDrawButton onClick={handlePayButtonClick}>결제하기</WithDrawButton>
     </ModalCardBlock>
   )
