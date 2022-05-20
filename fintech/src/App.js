@@ -6,6 +6,7 @@ import BalancePage from "./pages/BalancePage";
 import MainPage from "./pages/MainPage";
 import NewsApiPage from "./pages/NewsApiPage";
 import QrCodePage from "./pages/QrCodePage";
+import QrCodeReaderPage from "./pages/QrCodeReaderPage";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/main" element={<MainPage/>}></Route>
         <Route path="/balance" element={<BalancePage/>}></Route>
         <Route path="/qr" element={<QrCodePage/>}></Route>
+        <Route path="/qrreader" element={<QrCodeReaderPage/>}></Route>
       </Routes>
     </BrowserRouter>
   );
