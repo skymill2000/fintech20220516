@@ -1,7 +1,10 @@
 import React from 'react'
-import AppBar from '../components/common/AppBar'
 import { QRCodeSVG } from 'qrcode.react';
 import styled from 'styled-components';
+import { useLocation } from "react-router-dom";
+import queryString from "query-string";
+
+import AppBar from '../components/common/AppBar'
 
 const QRBlock = styled.div`
   display: flex;
@@ -11,11 +14,14 @@ const QRBlock = styled.div`
 `;
 
 const QrCodePage = () => {
+  const { search } = useLocation(); //query string get
+  const { fintechUseNo } = queryString.parse(search);
+  
   return (
     <>
         <AppBar title={"QR 코드"}></AppBar>
         <QRBlock>
-            <QRCodeSVG size={200} value="fintech use no" />
+            <QRCodeSVG size={200} value={fintechUseNo} />
         </QRBlock>
     </>
   )
