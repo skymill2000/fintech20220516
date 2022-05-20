@@ -69,9 +69,17 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
 
     axios(option).then(({data})=>{
         console.log(data);
+        deposit();
     })
     //...
   } 
+
+  const deposit = () =>{
+    const twoLeggedToken = ""
+    //입금 요청 
+    //axios
+  }
+
 
   const handleChange = (e) => {
     const {value} = e.target;
