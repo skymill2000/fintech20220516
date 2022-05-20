@@ -26,15 +26,35 @@ const WithDrawButton = styled.button`
   margin-top: 0.3rem;
 `;
 
-
 const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
+  
+  const genTransId = () => {
+    let countnum = Math.floor(Math.random() * 1000000000) + 1;
+    let transId = "T991599190U" + countnum; //이용기과번호 본인것 입력
+    return transId;
+  };    
+     
+  const handlePayButtonClick = () => {
+    //#work8 출금 이체 axios 요청
+    //...
+    const option = {
+        method: "POST",
+        url: "/v2.0/transfer/withdraw/fin_num",
+        headers: {
+          Authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+        data: sendData,
+    };
+    //...
+  } 
+
   return (
     <ModalCardBlock>
       <CardTitle>{bankName}</CardTitle>
       <FintechUseNo>{fintechUseNo}</FintechUseNo>
-      <p>{tofintechno}에 출금이체를 발생시킵니다.</p>
+      <p>{tofintechno}로 돈을 보냅니다.</p>
       <input></input>
-      <WithDrawButton>결제하기</WithDrawButton>
+      <WithDrawButton onClick={handlePayButtonClick}>결제하기</WithDrawButton>
     </ModalCardBlock>
   )
 }

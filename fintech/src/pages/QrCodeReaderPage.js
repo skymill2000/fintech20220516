@@ -24,7 +24,7 @@ const QrCodeReaderPage = () => {
     };
     
     const [result, setResult] = useState('')
-    const [openModal, setOpenModal] = useState(true); //no camera : true
+    const [openModal, setOpenModal] = useState(false); //no camera : true
 
     const handleScan = (result, error) => {
         if (!!result) {
