@@ -5,6 +5,7 @@ import AxiosTest from "./pages/AxiosTest";
 import BalancePage from "./pages/BalancePage";
 import MainPage from "./pages/MainPage";
 import NewsApiPage from "./pages/NewsApiPage";
+import QrCodePage from "./pages/QrCodePage";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/authResult" element={<AuthResultPage/>}></Route>
         <Route path="/main" element={<MainPage/>}></Route>
         <Route path="/balance" element={<BalancePage/>}></Route>
+        <Route path="/qr" element={<QrCodePage/>}></Route>
       </Routes>
     </BrowserRouter>
   );
