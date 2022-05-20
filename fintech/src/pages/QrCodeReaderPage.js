@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import AppBar from '../components/common/AppBar'
 import { QrReader } from 'react-qr-reader';
 import Modal from 'react-modal';
+import ModalWithdraw from '../components/withdraw/ModalWithdraw';
 
 const QrCodeReaderPage = () => {
     const CustomStyles = {
@@ -23,7 +24,7 @@ const QrCodeReaderPage = () => {
     };
     
     const [result, setResult] = useState('')
-    const [openModal, setOpenModal] = useState(false); //no camera : true
+    const [openModal, setOpenModal] = useState(true); //no camera : true
 
     const handleScan = (result, error) => {
         if (!!result) {
@@ -53,7 +54,7 @@ const QrCodeReaderPage = () => {
             style={CustomStyles}
             onRequestClose={closeModal}
         >
-
+            <ModalWithdraw tofintechno={result}></ModalWithdraw>
         </Modal>
       </>
   )
